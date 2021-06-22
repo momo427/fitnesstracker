@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { all } = require('../routes/routes_api');
+const { all } = require('../routes/apiRoutes');
 const Schema = mongoose.Schema;
 
 const workoutSchema = new Schema({

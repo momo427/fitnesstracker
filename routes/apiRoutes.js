@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const Exercises = require('../models/exercises');
+const Exercises = require('../models/exercise');
 
 // GET/READ WORKOUT
-router.get('/api/excersies', (req, res) => {
+router.get('/api/workouts', (req, res) => {
 	Exercises.find({})
 		// add index to sort by ascending days
 		.sort({ day: 1 })
@@ -18,7 +18,7 @@ router.get('/api/excersies', (req, res) => {
 });
 
 // CREATE WORKOUT
-router.post('/api/excercises', ({ body }, res) => {
+router.post('/api/workouts', ({ body }, res) => {
 	Exercises.create(body)
 		.then((data) => {
 			res.json(data);
@@ -32,8 +32,8 @@ router.post('/api/excercises', ({ body }, res) => {
 });
 
 // UPDATE WORKOUT BY ID
-router.put('/api/excersies/:id', ({ body, params }, res) => {
-	Exercises.findByIdAndUpdate(params.id, { $push: { exercises: body } }, { new: true, runValidators: true })
+router.put('/api/workouts/:id', ({ body, params }, res) => {
+	Exercises.findByIdAndUpdate(params.id, { $push: { exercises: body } })
 		.then((data) => {
 			res.json(data);
 			console.log(data);
@@ -46,7 +46,7 @@ router.put('/api/excersies/:id', ({ body, params }, res) => {
 });
 
 // GET/READ STATS
-router.get('/api/excersies/range', (req, res) => {
+router.get('/api/workouts/range', (req, res) => {
 	Exercises.find()
 		.then((data) => {
 			res.json(data);
@@ -60,7 +60,7 @@ router.get('/api/excersies/range', (req, res) => {
 });
 
 // POST STATS
-router.post('/api/exercises/range', (req, res) => {
+router.post('/api/workouts/range', (req, res) => {
 	Exercises.create({})
 		.then((data) => {
 			res.json(data);

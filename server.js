@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3006;
 
 //Middleware -------
 const databaseUrl = "fitnesstracker";
-const collections = ["workouts"];
+const collections = ["excercises"];
 
 const db = mongojs(databaseUrl, collections);
 
@@ -21,10 +21,10 @@ db.on("error", error => {
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use(express.static('./Develop/public'));
+app.use(express.static("public"));
 // ROUTES
-
-app.use(require('./02-Homework/Develop/public/routes/htmlRoutes.js'));
+app.use(require('./routes/apiRoutes.js'))
+// app.use(require('./routes/htmlRoutes.js'));
 // START SERVER
 app.listen(PORT, () => {
 	console.log(`App is running on port ${PORT}!`);
