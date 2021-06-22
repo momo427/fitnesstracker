@@ -20,8 +20,12 @@
   "homepage": "https://github.com/momo427/fitnesstracker#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "mongo": "^0.1.0",
+    "mongo-seeding-cli": "^3.7.0",
     "mongodb": "^3.6.9",
     "mongojs": "^3.1.0",
-    "mongoose": "^5.12.14"
-  }
+    "mongoose": "^5.12.14",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {}
 }
