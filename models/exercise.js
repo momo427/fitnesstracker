@@ -1,11 +1,10 @@
 const mongoose = require('mongoose');
-const { all } = require('../routes/apiRoutes');
 const Schema = mongoose.Schema;
 
 const workoutSchema = new Schema({
 	day: {
 		type: Date,
-		default: () => new Date()
+		default: Date.now
 	},
 	exercises: [
 		{
@@ -34,6 +33,6 @@ const workoutSchema = new Schema({
 	]
 });
 
-const Excercises = mongoose.model('Excercises', workoutSchema);
+const Exercises = mongoose.model('exercises', workoutSchema);
 
-module.exports = Excercises;
+module.exports = Exercises;
